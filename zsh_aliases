@@ -1,0 +1,3 @@
+alias el='cd ~/.emacs.d'
+alias cut1='cut -f 1 -d :'
+

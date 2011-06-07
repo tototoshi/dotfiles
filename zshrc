@@ -7,6 +7,13 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 ############################################################
+###  functions
+############################################################
+command_exists () {
+    which "$1" &> /dev/null ;
+}
+
+############################################################
 ###  .zshrc
 ############################################################
 
@@ -149,3 +156,12 @@ function chpwd() {
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
+
+############################################################
+###  Start xbindkeys if it is found.
+############################################################
+if command_exists xbindkeys; then
+    if ! ps x | grep xbindkeys | grep -v grep > /dev/null 2>&1 ; then
+        xbindkeys
+    fi
+fi

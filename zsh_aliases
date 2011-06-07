@@ -1,3 +1,6 @@
+alias e='edit'
 alias el='cd ~/.emacs.d'
 alias cut1='cut -f 1 -d :'
-
+alias g='git'
+alias dotemacs='cd $HOME/.emacs.d/dotemacs'
+alias jvn='curl http://jvn.jp/rss/jvn.rdf 2> /dev/null | check_jvn'

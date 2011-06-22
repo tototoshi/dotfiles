@@ -1,0 +1,6 @@
+#!/bin/sh
+ln -s screenrc ~/.screenrc
+ln -s zshrc ~/.zshrc
+ln -s ackrc ~/.ackrc
+ln -s vimrc ~/.vimrc
+

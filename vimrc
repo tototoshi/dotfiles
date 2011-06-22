@@ -30,6 +30,10 @@ set smartindent
 set smarttab
 "ファイル内の <Tab> が対応する空白の数
 "set tabstop=4
+"キーボードで<Tab>キーを押した時に挿入される空白の量
+"set softtabstop=2
+"vimが挿入するインデント('cindent')やシフトオペレータ(>>や<<)で挿入/削除されるインデントの幅を、画面上の見た目で何文字分であるか指定します。自動的に挿入される量
+"set shiftwidth=2
 "カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 "検索をファイルの先頭へループしない

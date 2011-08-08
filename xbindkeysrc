@@ -1,5 +1,8 @@
 "gmrun"
-	control+shift +p
+  control+shift +p
 "nautilus"
-	control+shift +e
-
+  control+shift +e
+"xdotool search --class firefox windowactivate"
+  Control+Shift + f
+"xdotool search --class gnome-terminal windowactivate"
+  Control+Shift + c

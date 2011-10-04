@@ -165,3 +165,11 @@ if command_exists xbindkeys; then
         xbindkeys
     fi
 fi
+
+############################################################
+###  read python startup file
+############################################################
+if [ -f ~/.pythonstartup ]; then
+    export PYTHONSTARTUP=~/.pythonstartup
+fi
+

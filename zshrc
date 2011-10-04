@@ -29,8 +29,10 @@ alias ll='ls -l'
 alias vi='vim'
 
 #プロンプトの設定
-local LEFTC=$'%{\e[38;5;30m%}'
-local RIGHTC=$'%{\e[38;5;88m%}'
+#local LEFTC=$'%{\e[38;5;30m%}'
+#local RIGHTC=$'%{\e[38;5;88m%}'
+local LEFTC=""
+local RIGHTC=""
 local DEFAULTC=$'%{\e[m%}'
 local CURRENT_DIR=$'%/%%'
 export PROMPT=$LEFTC"$USER@$CURRENT_DIR "$DEFAULTC

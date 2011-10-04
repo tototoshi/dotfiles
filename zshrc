@@ -169,9 +169,24 @@ if command_exists xbindkeys; then
 fi
 
 ############################################################
+###  set DJANGO_SETTINGS_MODULE
+############################################################
+function setdsm() {
+    export PYTHONPATH=$PYTHONPATH:$PWD/..
+    export PYTHONPATH=$PYTHONPATH:$PWD
+    if [ -z "$1" ]; then
+        x=${PWD/\/[^\/]*\/}
+        export DJANGO_SETTINGS_MODULE=$x.settings
+    else
+        export DJANGO_SETTINGS_MODULE=$1
+    fi
+
+    echo "DJANGO_SETTINGS_MODULE set to $DJANGO_SETTINGS_MODULE"
+}
+
+############################################################
 ###  read python startup file
 ############################################################
 if [ -f ~/.pythonstartup ]; then
     export PYTHONSTARTUP=~/.pythonstartup
 fi
-

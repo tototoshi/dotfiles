@@ -213,3 +213,8 @@ function cde () {
     echo "chdir to $EMACS_CWD"
     cd "$EMACS_CWD"
 }
+
+## Open a file in emacs using emacsclient
+function eopen() {
+  emacsclient -e "(find-file \"$1\")"
+}

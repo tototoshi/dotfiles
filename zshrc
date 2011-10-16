@@ -196,7 +196,7 @@ fi
 ############################################################
 ## http://masutaka.net/chalow/2011-09-28-1.html
 ## Invoke the ``dired'' of current working directory in Emacs buffer.
-function dired () {
+function cdd() {
   emacsclient -e "(dired \"$PWD\")"
 }
 

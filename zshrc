@@ -218,3 +218,11 @@ function cde () {
 function eopen() {
   emacsclient -e "(find-file \"$1\")"
 }
+
+##########################################################
+## alias for javac
+## http://www.eva.ie.u-ryukyu.ac.jp/~koji/ie/Tips/javac.html
+##########################################################
+alias javac='LC_ALL=en javac'
+
+

@@ -23,7 +23,13 @@ compinit
 
 export LANG=ja_JP.utf8
 
-alias ls='ls --color=auto'
+OSNAME=$(uname)
+if [ $OSNAME = "Lunux" ]; then
+    alias ls='ls --color=auto'
+elif [ $OSNAME = "Darwin" ]; then
+    alias ls='ls -G'
+fi
+
 alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'

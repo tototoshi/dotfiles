@@ -1,5 +1,9 @@
 escape ^Jj
-shell /usr/bin/zsh
+shell /bin/zsh
+
+defencoding utf8
+encoding utf8 utf8
+
 bind ^u encoding utf8
 bind ^e encoding euc
 

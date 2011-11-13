@@ -229,6 +229,5 @@ function eopen() {
 ## alias for javac
 ## http://www.eva.ie.u-ryukyu.ac.jp/~koji/ie/Tips/javac.html
 ##########################################################
-alias javac='LC_ALL=en javac'
-
-
+alias javac='LC_ALL=ja.UTF-8 javac -J-Dfile.encoding=utf-8'
+alias java='java -Dfile.encoding=UTF-8'

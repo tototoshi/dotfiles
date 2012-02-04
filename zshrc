@@ -1,11 +1,3 @@
-if [ -f ~/.zsh_private ]; then
-    source ~/.zsh_private
-fi
-
-if [ -f ~/.zsh_aliases ]; then
-   source ~/.zsh_aliases
-fi
-
 ############################################################
 ###  functions
 ############################################################
@@ -221,7 +213,7 @@ function cde () {
 }
 
 ## Open a file in emacs using emacsclient
-function eopen() {
+function edit() {
   emacsclient -e "(find-file \"$1\")"
 }
 
@@ -231,3 +223,13 @@ function eopen() {
 ##########################################################
 alias javac='LC_ALL=ja.UTF-8 javac -J-Dfile.encoding=utf-8'
 alias java='java -Dfile.encoding=UTF-8'
+
+
+if [ -f ~/.zsh_private ]; then
+    source ~/.zsh_private
+fi
+
+if [ -f ~/.zsh_aliases ]; then
+   source ~/.zsh_aliases
+fi
+

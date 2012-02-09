@@ -13,11 +13,12 @@ command_exists () {
 autoload -U compinit
 compinit
 
-export LANG=ja_JP.utf8
+export LANG=ja_JP.UTF-8
 
 OSNAME=$(uname)
 if echo $OSNAME | grep -i linux > /dev/null 2>&1 
 then
+if [ $OSNAME = "Linux" ]; then
     alias ls='ls --color=auto'
 elif echo $OSNAME | grep -i darwin > /dev/null 2>&1
 then
@@ -226,7 +227,7 @@ function edit() {
 ## alias for javac
 ## http://www.eva.ie.u-ryukyu.ac.jp/~koji/ie/Tips/javac.html
 ##########################################################
-alias javac='LC_ALL=ja.UTF-8 javac -J-Dfile.encoding=utf-8'
+alias javac='LC_ALL=ja_JP.UTF-8 javac -J-Dfile.encoding=utf-8'
 alias java='java -Dfile.encoding=UTF-8'
 
 
@@ -238,3 +239,10 @@ if [ -f ~/.zsh_aliases ]; then
    source ~/.zsh_aliases
 fi
 
+##########################################################
+## rvm
+##########################################################
+if [ -f ~/.profile ]
+then
+    source ~/.profile
+fi

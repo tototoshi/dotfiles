@@ -24,6 +24,9 @@ then
     alias ls='ls -G'
 fi
 
+# Configuration for *nix commands
+GREP_OPTIONS='--color=auto'
+
 alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'

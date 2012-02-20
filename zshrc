@@ -16,9 +16,8 @@ compinit
 export LANG=ja_JP.UTF-8
 
 OSNAME=$(uname)
-if echo $OSNAME | grep -i linux > /dev/null 2>&1 
+if echo $OSNAME | grep -i linux > /dev/null 2>&1
 then
-if [ $OSNAME = "Linux" ]; then
     alias ls='ls --color=auto'
 elif echo $OSNAME | grep -i darwin > /dev/null 2>&1
 then

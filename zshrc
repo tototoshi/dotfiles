@@ -5,6 +5,31 @@ command_exists () {
     which "$1" &> /dev/null ;
 }
 
+prepend_path () {
+    export PATH=$1:$PATH
+}
+
+loop-compile () {
+    mvn compile
+    while inotifywait -r -e modify -e create -e delete src/main --exclude '\#|\.jspx?|\.js'
+    do
+        mvn compile
+    done
+}
+
+function lw {
+    sed -e 's/</\&lt;/g' |\
+    sed -e 's/>/\&gt;/g' |\
+    sed -e 's/\&/\&amp;/g' |\
+    sed -e 's/[^:]*/<a href="\0">\0<\/a>/' |\
+    sed -e 's/$/<br\/>/' |\
+    EDITOR='vim' w3m -T text/html
+}
+
+function find-grep {
+    find . | grep -v '\.svn\|\.git' | xargs grep $1
+}
+
 ############################################################
 ###  .zshrc
 ############################################################

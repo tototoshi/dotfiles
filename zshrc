@@ -37,6 +37,11 @@ if_mac () {
     fi
 }
 
+if_linux () {
+    if [[ $(uname) = "Linux" ]] then
+        "$@"
+    fi
+}
 
 ############################################################
 ###  .zshrc
@@ -48,12 +53,7 @@ compinit
 
 export LANG=ja_JP.UTF-8
 
-OSNAME=$(uname)
-if echo $OSNAME | grep -i linux > /dev/null 2>&1
-then
-    alias ls='ls --color=auto'
-fi
-
+if_linux alias ls='ls --color=auto'
 if_mac alias ls='ls -G'
 
 # Configuration for *nix commands
@@ -261,6 +261,7 @@ edit() {
 
 ec () {
     if_mac /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw "$@"
+    if_linux emacsclient -nw "$@"
 }
 
 ##########################################################

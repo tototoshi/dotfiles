@@ -17,7 +17,7 @@ loop-compile () {
     done
 }
 
-function lw {
+lw () {
     sed -e 's/</\&lt;/g' |\
     sed -e 's/>/\&gt;/g' |\
     sed -e 's/\&/\&amp;/g' |\
@@ -26,9 +26,17 @@ function lw {
     EDITOR='vim' w3m -T text/html
 }
 
-function find-grep {
+find-grep () {
     find . | grep -v '\.svn\|\.git' | xargs grep $1
 }
+
+# execute command or function only when using mac
+if_mac () {
+    if [[ $(uname) = "Darwin" ]] then
+        "$@"
+    fi
+}
+
 
 ############################################################
 ###  .zshrc
@@ -44,10 +52,9 @@ OSNAME=$(uname)
 if echo $OSNAME | grep -i linux > /dev/null 2>&1
 then
     alias ls='ls --color=auto'
-elif echo $OSNAME | grep -i darwin > /dev/null 2>&1
-then
-    alias ls='ls -G'
 fi
+
+if_mac alias ls='ls -G'
 
 # Configuration for *nix commands
 GREP_OPTIONS='--color=auto'
@@ -220,16 +227,21 @@ if [ -f ~/.pythonstartup ]; then
 fi
 
 ############################################################
+###  for emacs
+############################################################
+if_mac alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
+
+############################################################
 ###  for emacsclient
 ############################################################
 ## http://masutaka.net/chalow/2011-09-28-1.html
 ## Invoke the ``dired'' of current working directory in Emacs buffer.
-function cdd() {
+cdd() {
   emacsclient -e "(dired \"$PWD\")"
 }
 
 ## Chdir to the ``default-directory'' of currently opened in Emacs buffer.
-function cde () {
+cde () {
     EMACS_CWD=`emacsclient -e "
      (expand-file-name
       (with-current-buffer
@@ -243,16 +255,20 @@ function cde () {
 }
 
 ## Open a file in emacs using emacsclient
-function edit() {
+edit() {
   emacsclient -e "(find-file \"$1\")"
+}
+
+ec () {
+    if_mac /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw "$@"
 }
 
 ##########################################################
 ## alias for javac
 ## http://www.eva.ie.u-ryukyu.ac.jp/~koji/ie/Tips/javac.html
 ##########################################################
-alias javac='LC_ALL=ja_JP.UTF-8 javac -J-Dfile.encoding=utf-8'
-alias java='java -Dfile.encoding=UTF-8'
+if_mac alias javac='LC_ALL=ja_JP.UTF-8 javac -J-Dfile.encoding=utf-8'
+if_mac alias java='java -Dfile.encoding=UTF-8'
 
 
 if [ -f ~/.zsh_private ]; then

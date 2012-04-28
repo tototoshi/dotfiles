@@ -2,4 +2,10 @@
 	control+shift +p
 "nautilus"
 	control+shift +e
+"xdotool windowactivate `xdotool search --class emacs | head -n 1`"
+        control+8
+"xdotool windowactivate $(xdotool search --class firefox | head -n 1)"
+        control+9
+"xdotool windowactivate $(xdotool search --class gnome-terminal | head -n 1)"
+        control+0
 

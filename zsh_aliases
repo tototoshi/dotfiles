@@ -1,3 +1,5 @@
+alias acs='apt-cache search'
+alias agi='sudo apt-get install'
 alias cut1='cut -f 1 -d :'
 alias dcommit='git svn dcommit'
 alias dl='curl -O'
@@ -6,11 +8,18 @@ alias el='cd ~/.emacs.d'
 alias g='git'
 alias gerp='grep'
 alias jvn='curl http://jvn.jp/rss/jvn.rdf 2> /dev/null | check_jvn'
-alias n="bash -c 'nautilus .'"
+alias la='ls -a'
+alias ll='ls -l'
 alias nodejs='node'
 alias nose='nosetests'
 alias py='python'
-alias xclip1='xclip -sel clip'
-alias agi='sudo apt-get install'
-alias acs='apt-cache search'
 alias u='cd ..'
+alias vi='vim'
+alias xclip1='xclip -sel clip'
+
+if_linux alias ls='ls --color=auto'
+if_linux alias n="bash -c 'nautilus .'"
+if_mac alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
+if_mac alias java='java -Dfile.encoding=UTF-8'
+if_mac alias javac='LC_ALL=ja_JP.UTF-8 javac -J-Dfile.encoding=utf-8'
+if_mac alias ls='ls -G'

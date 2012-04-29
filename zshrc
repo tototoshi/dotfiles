@@ -9,6 +9,13 @@ prepend_path () {
     export PATH=$1:$PATH
 }
 
+load_if_exists () {
+    local file=$1
+    if [ -f $file ]; then
+        source $file
+    fi
+}
+
 loop-compile () {
     mvn compile
     while inotifywait -r -e modify -e create -e delete src/main --exclude '\#|\.jspx?|\.js'
@@ -37,6 +44,7 @@ if_mac () {
     fi
 }
 
+# execute command or function only when using linux
 if_linux () {
     if [[ $(uname) = "Linux" ]] then
         "$@"
@@ -53,15 +61,9 @@ compinit
 
 export LANG=ja_JP.UTF-8
 
-if_linux alias ls='ls --color=auto'
-if_mac alias ls='ls -G'
-
 # Configuration for *nix commands
 GREP_OPTIONS='--color=auto'
 
-alias la='ls -a'
-alias ll='ls -l'
-alias vi='vim'
 
 #プロンプトの設定
 #local LEFTC=$'%{\e[38;5;30m%}'
@@ -185,7 +187,8 @@ RPROMPT=$'$(vcs_info_wrapper)'
 
 # chpwd
 function chpwd() {
-    ls
+    if_linux ls --color=auto
+    if_mac ls -G
 }
 
 # http://subtech.g.hatena.ne.jp/secondlife/20110222/1298354852
@@ -227,11 +230,6 @@ if [ -f ~/.pythonstartup ]; then
 fi
 
 ############################################################
-###  for emacs
-############################################################
-if_mac alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
-
-############################################################
 ###  for emacsclient
 ############################################################
 ## http://masutaka.net/chalow/2011-09-28-1.html
@@ -264,27 +262,12 @@ ec () {
     if_linux emacsclient -nw "$@"
 }
 
-##########################################################
-## alias for javac
-## http://www.eva.ie.u-ryukyu.ac.jp/~koji/ie/Tips/javac.html
-##########################################################
-if_mac alias javac='LC_ALL=ja_JP.UTF-8 javac -J-Dfile.encoding=utf-8'
-if_mac alias java='java -Dfile.encoding=UTF-8'
 
-
-if [ -f ~/.zsh_private ]; then
-    source ~/.zsh_private
-fi
-
-if [ -f ~/.zsh_aliases ]; then
-   source ~/.zsh_aliases
-fi
-
+load_if_exists ~/.zsh_private
+load_if_exists ~/.zsh_aliases
 
 ##########################################################
 ## rvm
 ##########################################################
-if [ -f ~/.profile ]
-then
-    source ~/.profile
-fi
+load_if_exists ~/.profile
+

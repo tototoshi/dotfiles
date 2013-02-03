@@ -4,6 +4,3 @@ alias c=compile
 alias t=test
 alias r=run
 alias tc=test:compile
-alias cs=container:start
-alias start=container:start
-alias stop=container:stop

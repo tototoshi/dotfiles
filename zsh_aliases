@@ -16,10 +16,12 @@ alias py='python'
 alias u='cd ..'
 alias vi='vim'
 alias xclip1='xclip -sel clip'
+if_mac alias o='open .'
 
 if_linux alias ls='ls --color=auto'
 if_linux alias n="bash -c 'nautilus .'"
 if_mac alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 if_mac alias java='java -Dfile.encoding=UTF-8'
+if_mac alias scala='scala -Dfile.encoding=UTF-8'
 if_mac alias javac='LC_ALL=ja_JP.UTF-8 javac -J-Dfile.encoding=utf-8'
 if_mac alias ls='ls -G'

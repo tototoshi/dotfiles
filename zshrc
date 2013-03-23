@@ -28,7 +28,7 @@ lw () {
     sed -e 's/</\&lt;/g' |\
     sed -e 's/>/\&gt;/g' |\
     sed -e 's/\&/\&amp;/g' |\
-    sed -e 's/[^:]*/<a href="\0">\0<\/a>/' |\
+    perl -pe 's/^([^:]+):(\d+):(.+)$/<a href="$1">$1:$2<\/a>:$3/' |\
     sed -e 's/$/<br\/>/' |\
     EDITOR='vim' w3m -T text/html
 }

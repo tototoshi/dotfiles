@@ -25,11 +25,11 @@ loop-compile () {
 }
 
 lw () {
-    sed -e 's/</\&lt;/g' |\
-    sed -e 's/>/\&gt;/g' |\
-    sed -e 's/\&/\&amp;/g' |\
+    perl -pe 's/\&/\&amp;/g' |\
+    perl -pe 's/</\&lt;/g' |\
+    perl -pe 's/>/\&gt;/g' |\
     perl -pe 's/^([^:]+):(\d+):(.+)$/<a href="$1">$1:$2<\/a>:$3/' |\
-    sed -e 's/$/<br\/>/' |\
+    perl -pe 's/$/<br\/>/' |\
     EDITOR='vim' w3m -T text/html
 }
 

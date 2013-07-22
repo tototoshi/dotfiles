@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[TMPFILE=\$(mktemp -t temp.XXXXXX)
+
+cleanup () {
+    rm \$TMPFILE
+}
+trap "cleanup" EXIT
+]]></content>
+    <tabTrigger>tmpfile</tabTrigger>
+    <scope>source.shell</scope>
+</snippet>

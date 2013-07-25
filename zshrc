@@ -271,3 +271,33 @@ load_if_exists ~/.zsh_aliases
 ##########################################################
 load_if_exists ~/.profile
 
+function ltrim () {
+   perl -pe '"'"'s/^\s*//'"'"'
+}
+
+function ignore_comment() {
+   perl -pe '"'"'s/^(.*?)#.*$/$1/'"'"'
+}
+
+function remove_blank_line() {
+  grep -v ^$
+}
+
+function take_until_first_dot() {
+  cut -f 1 -d "."
+}
+
+function collect_profile() {
+  cat ~/bin/scalikejdbc-cli/config.properties \
+    | ltrim \
+    | ignore_comment \
+    | take_until_first_dot \
+    | sort -u
+}
+
+_dbconsole() {
+    compadd $(cat ~/bin/scalikejdbc-cli/config.properties | perl -pe 's/^(.*?)#.*$/$1/; s/^([^.]*?)(\..*)/$1/')
+}
+compdef _dbconsole dbconsole
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

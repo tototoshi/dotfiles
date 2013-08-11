@@ -301,3 +301,6 @@ _dbconsole() {
 compdef _dbconsole dbconsole
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Change the speed of cursor
+if_linux xset r rate 200 35

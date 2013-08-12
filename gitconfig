@@ -1,0 +1,12 @@
+[color]
+        ui = true
+[alias]
+        co = checkout
+        st = status
+        ci = commit
+        di = diff
+        br = branch
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[core]
+        excludesfile = ~/.gitignore
+        pager = less

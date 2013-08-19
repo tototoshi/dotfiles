@@ -1,15 +1,24 @@
 [color]
         ui = true
 [alias]
+        p = pull --rebase
+        rb = rebase
         co = checkout
+        a  = add
+        l  = log
         st = status
+        sh = stash
+        f  = fetch
         ci = commit
+        cm = commit -m
         di = diff
         br = branch
         hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
         excludesfile = ~/.gitignore
         pager = less
+        editor = vim
+        autocrlf = input
 [tig "bind"]
         generic = g move-first-line
         generic = G move-last-line

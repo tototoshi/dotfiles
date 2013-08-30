@@ -13,6 +13,7 @@
         cm = commit -m
         di = diff
         br = branch
+        fixup = commit --amend -C HEAD
         hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
         excludesfile = ~/.gitignore

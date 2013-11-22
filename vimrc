@@ -38,3 +38,5 @@ set shiftwidth=4
 set whichwrap=b,s,h,l,<,>,[,]
 "検索をファイルの先頭へループしない
 set nowrapscan
+"Esc を C-k に"
+imap <c-k> <esc>

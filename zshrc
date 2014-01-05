@@ -1,3 +1,11 @@
+# Fix for pyenv & tmux
+# http://yowatari.hatenablog.com/entry/2013/12/19/223201
+if [ -x /usr/libexec/path_helper ]; then
+    if [ -z "$TMUX" ]; then
+        eval `/usr/libexec/path_helper -s`
+    fi
+fi
+
 ############################################################
 ###  functions
 ############################################################
@@ -54,6 +62,9 @@ if_linux () {
 ############################################################
 ###  .zshrc
 ############################################################
+
+# 重複を取り除く
+typeset -U PATH
 
 # Created by newuser for 4.3.10
 autoload -U compinit

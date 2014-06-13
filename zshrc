@@ -277,11 +277,6 @@ ec () {
 load_if_exists ~/.zsh_private
 load_if_exists ~/.zsh_aliases
 
-##########################################################
-## rvm
-##########################################################
-load_if_exists ~/.profile
-
 function ltrim () {
    perl -pe '"'"'s/^\s*//'"'"'
 }

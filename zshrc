@@ -24,14 +24,6 @@ load_if_exists () {
     fi
 }
 
-loop-compile () {
-    mvn compile
-    while inotifywait -r -e modify -e create -e delete src/main --exclude '\#|\.jspx?|\.js'
-    do
-        mvn compile
-    done
-}
-
 lw () {
     perl -pe 's/\&/\&amp;/g' |\
     perl -pe 's/</\&lt;/g' |\
@@ -39,10 +31,6 @@ lw () {
     perl -pe 's/^([^:]+):(\d+):(.+)$/<a href="$1">$1:$2<\/a>:$3/' |\
     perl -pe 's/$/<br\/>/' |\
     EDITOR='vim' w3m -T text/html
-}
-
-find-grep () {
-    find . | grep -v '\.svn\|\.git' | xargs grep $1
 }
 
 # execute command or function only when using mac
@@ -146,34 +134,6 @@ setopt nolistbeep
 autoload -U select-word-style
 select-word-style bash
 
-################################
-### Functions ###
-################################
-
-# Extract files from any archive
-# Usage: ex
-
-function ex ()
-{
-    if [ -f "$1" ] ; then
-        case "$1" in
-            *.tar) tar xvf $1 ;;
-            *.tar.bz2 | *.tbz2 ) tar xjvf $1 ;;
-            *.tar.gz | *.tgz ) tar xzvf $1 ;;
-            *.bz2) bunzip2 $1 ;;
-            *.rar) unrar x $1 ;;
-            *.gz) gunzip $1 ;;
-            *.zip) unzip $1 ;;
-            *.Z) uncompress $1 ;;
-            *.7z) 7z x $1 ;;
-            *.xz) tar xJvf $1 ;;
-            *) echo ""${1}" cannot be extracted via extract()" ;;
-        esac
-    else
-        echo ""${1}" is not a valid file"
-    fi
-}
-
 ###################################################
 ###  get a prompt which indicates Git-branch
 ###################################################
@@ -217,21 +177,6 @@ if command_exists xbindkeys; then
     fi
 fi
 
-############################################################
-###  set DJANGO_SETTINGS_MODULE
-############################################################
-function setdsm() {
-    export PYTHONPATH=$PYTHONPATH:$PWD/..
-    export PYTHONPATH=$PYTHONPATH:$PWD
-    if [ -z "$1" ]; then
-        x=${PWD/\/[^\/]*\/}
-        export DJANGO_SETTINGS_MODULE=$x.settings
-    else
-        export DJANGO_SETTINGS_MODULE=$1
-    fi
-
-    echo "DJANGO_SETTINGS_MODULE set to $DJANGO_SETTINGS_MODULE"
-}
 
 ############################################################
 ###  read python startup file
@@ -276,37 +221,3 @@ ec () {
 
 load_if_exists ~/.zsh_private
 load_if_exists ~/.zsh_aliases
-
-function ltrim () {
-   perl -pe '"'"'s/^\s*//'"'"'
-}
-
-function ignore_comment() {
-   perl -pe '"'"'s/^(.*?)#.*$/$1/'"'"'
-}
-
-function remove_blank_line() {
-  grep -v ^$
-}
-
-function take_until_first_dot() {
-  cut -f 1 -d "."
-}
-
-function collect_profile() {
-  cat ~/bin/scalikejdbc-cli/config.properties \
-    | ltrim \
-    | ignore_comment \
-    | take_until_first_dot \
-    | sort -u
-}
-
-_dbconsole() {
-    compadd $(cat ~/bin/scalikejdbc-cli/config.properties | perl -pe 's/^(.*?)#.*$/$1/; s/^([^.]*?)(\..*)/$1/')
-}
-compdef _dbconsole dbconsole
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Change the speed of cursor
-if_linux xset r rate 200 35

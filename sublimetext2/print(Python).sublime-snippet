@@ -1,7 +1,0 @@
-<snippet>
-	<content><![CDATA[
-print $0
-]]></content>
-	<tabTrigger>p</tabTrigger>
-	<scope>source.python</scope>
-</snippet>

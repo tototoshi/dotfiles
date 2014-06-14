@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[
-#!/usr/bin/perl
-use warnings;
-use strict;
-]]></content>
-	<tabTrigger>sh</tabTrigger>
-	<scope>source.perl</scope>
-</snippet>

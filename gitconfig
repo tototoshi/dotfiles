@@ -9,7 +9,7 @@
         st = status
         sh = stash
         f  = fetch
-        ci = commit
+        ci = commit -v
         cm = commit -m
         di = diff
         br = branch

@@ -1,9 +1,0 @@
-#!/bin/sh
-ln -snf tmux.conf ~/.tmux.conf
-ln -snf zshrc ~/.zshrc
-ln -snf zsh_aliases ~/.zsh_aliases
-ln -snf ackrc ~/.ackrc
-ln -snf vimrc ~/.vimrc
-ln -snf sbtrc ~/.sbtrc
-ln -snf gitconfig ~/.gitconfig
-

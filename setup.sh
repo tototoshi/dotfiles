@@ -7,6 +7,7 @@ cp -f $(pwd)/ackrc ~/.ackrc
 cp -f $(pwd)/vimrc ~/.vimrc
 cp -f $(pwd)/sbtrc ~/.sbtrc
 cp -f $(pwd)/gitconfig ~/.gitconfig
+cp -f $(pwd)/gemrc ~/.gemrc
 
 git config --global user.name "Toshiyuki Takahashi"
 /bin/echo -n 'email (for gitconfig): ' && read email

@@ -11,6 +11,7 @@ cp -f $(pwd)/gemrc ~/.gemrc
 mkdir -p ~/.emacs.d
 cp -f $(pwd)/.emacs.d/init.el ~/.emacs.d/init.el
 
-git config --global user.name "Toshiyuki Takahashi"
+/bin/echo -n 'username (for gitconfig): ' && read username
+git config --global user.name "$username"
 /bin/echo -n 'email (for gitconfig): ' && read email
 git config --global user.email "$email"

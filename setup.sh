@@ -7,6 +7,7 @@ cp -f $(pwd)/ackrc ~/.ackrc
 cp -f $(pwd)/vimrc ~/.vimrc
 cp -f $(pwd)/sbtrc ~/.sbtrc
 cp -f $(pwd)/gitconfig ~/.gitconfig
+cp -f $(pwd)/gitignore ~/.gitignore
 cp -f $(pwd)/gemrc ~/.gemrc
 mkdir -p ~/.emacs.d
 cp -f $(pwd)/.emacs.d/init.el ~/.emacs.d/init.el

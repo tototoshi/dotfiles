@@ -169,16 +169,6 @@ bindkey '^S' history-incremental-pattern-search-forward
 
 
 ############################################################
-###  Start xbindkeys if it is found.
-############################################################
-if command_exists xbindkeys; then
-    if ! ps x | grep xbindkeys | grep -v grep > /dev/null 2>&1 ; then
-        xbindkeys
-    fi
-fi
-
-
-############################################################
 ###  read python startup file
 ############################################################
 if [ -f ~/.pythonstartup ]; then
@@ -211,11 +201,6 @@ cde () {
 ## Open a file in emacs using emacsclient
 edit() {
   emacsclient -e "(find-file \"$1\")"
-}
-
-ec () {
-    if_mac /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw "$@"
-    if_linux emacsclient -nw "$@"
 }
 
 

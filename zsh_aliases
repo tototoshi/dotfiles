@@ -3,6 +3,7 @@ alias gerp='grep'
 alias ll='ls -l'
 alias u='cd ..'
 alias vi='vim'
+alias e='emacs'
 if_mac alias o='open .'
 
 if_linux alias ls='ls --color=auto'

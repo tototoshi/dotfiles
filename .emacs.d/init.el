@@ -152,3 +152,5 @@
 (global-set-key (kbd "M-h") 'help)
 (defalias 'o 'occur)
 (defalias 'fg 'find-grep)
+
+(require 'php-mode nil t)

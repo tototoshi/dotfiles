@@ -154,3 +154,4 @@
 (defalias 'fg 'find-grep)
 
 (require 'php-mode nil t)
+(require 'coffee-mode nil t)

@@ -153,5 +153,16 @@
 (defalias 'o 'occur)
 (defalias 'fg 'find-grep)
 
+(add-hook 'html-mode-hook
+          (lambda ()
+            (setq-default indent-tabs-mode t)
+            (add-to-list 'auto-mode-alist '("\\.tpl$" . html-mode))))
+
 (require 'php-mode nil t)
+
 (require 'coffee-mode nil t)
+
+;;;;;;;;;;;;;;;;;;;;;
+;; auto-mode-alist ;;
+;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.tpl$" . html-mode))

@@ -166,3 +166,11 @@
 ;; auto-mode-alist ;;
 ;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.tpl$" . html-mode))
+
+;;;;;;;;;;;;;;;;
+;; package.el ;;
+;;;;;;;;;;;;;;;;
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)

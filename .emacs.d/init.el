@@ -73,6 +73,10 @@
 
 ;; backup file を作成しない
 (setq backup-inhibited t)
+;;; *.~ とかのバックアップファイルを作らない
+(setq make-backup-files nil)
+;;; .#* とかのバックアップファイルを作らない
+(setq auto-save-default nil)
 
 (set-default-coding-systems 'utf-8)
 

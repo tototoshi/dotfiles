@@ -151,6 +151,7 @@ vcs_info_wrapper() {
   fi
 }
 RPROMPT=$'$(vcs_info_wrapper)'
+RPROMPT="%(?,,%F{red}(╯°□°）╯︵┻━┻ %F{default}) $RPROMPT"
 
 # chpwd
 function chpwd() {

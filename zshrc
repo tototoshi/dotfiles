@@ -68,7 +68,6 @@ local RIGHTC=""
 local DEFAULTC=$'%{\e[m%}'
 local CURRENT_DIR=$'%/%%'
 export PROMPT=$LEFTC"$USER@$CURRENT_DIR "$DEFAULTC
-export RPROMPT=$RIGHTC"[%~]"$DEFAULTC
 #PROMPT="%/%% "
 #PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "

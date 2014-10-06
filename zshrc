@@ -173,6 +173,7 @@ fi
 
 load_if_exists ~/.zsh_private
 load_if_exists ~/.zsh_aliases
+load_if_exists ~/.zsh_functions
 
 # /usr/local/bin と $HOME/bin を /usr/bin より前にしたい
 export PATH=$HOME/bin:/usr/local/bin:$PATH

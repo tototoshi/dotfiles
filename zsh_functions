@@ -1,0 +1,7 @@
+gco () {
+    git checkout $(git branch | percol)
+}
+
+gmerge () {
+    git merge $(git branch | percol)
+}

@@ -12,6 +12,12 @@ cp -f $(pwd)/gemrc ~/.gemrc
 mkdir -p ~/.emacs.d
 cp -f $(pwd)/.emacs.d/init.el ~/.emacs.d/init.el
 
+# sbt
+cp -rf sbt/0.13/git.sbt ~/.sbt/0.13/git.sbt
+mkdir -p ~/.sbt/0.13/plugins
+cp -rf sbt/0.13/plugins/build.sbt ~/.sbt/0.13/plugins/build.sbt
+cp -rf sbt/0.13/sonatype.sbt ~/.sbt/0.13/plugins/sonatype.sbt
+
 /bin/echo -n 'username (for gitconfig): ' && read username
 git config --global user.name "$username"
 /bin/echo -n 'email (for gitconfig): ' && read email

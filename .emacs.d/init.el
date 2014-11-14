@@ -181,3 +181,5 @@
 
 (unless (package-installed-p 'scala-mode2)
   (package-refresh-contents) (package-install 'scala-mode2))
+(unless (package-installed-p 'go-mode)
+  (package-refresh-contents) (package-install 'go-mode))

@@ -14,8 +14,8 @@ mkdir -p ~/.emacs.d
 cp -f $(pwd)/.emacs.d/init.el ~/.emacs.d/init.el
 
 # sbt
-cp -rf sbt/0.13/git.sbt ~/.sbt/0.13/git.sbt
 mkdir -p ~/.sbt/0.13/plugins
+cp -rf sbt/0.13/git.sbt ~/.sbt/0.13/git.sbt
 cp -rf sbt/0.13/plugins/build.sbt ~/.sbt/0.13/plugins/build.sbt
 cp -rf sbt/0.13/sonatype.sbt ~/.sbt/0.13/plugins/sonatype.sbt
 

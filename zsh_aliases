@@ -1,8 +1,13 @@
 alias g='git'
+alias gg='git grep'
+alias ggi='git grep -i'
+alias gi='grep -i'
+alias gpr='git pull --rebase'
 alias gerp='grep'
 alias ll='ls -l'
 alias u='cd ..'
 alias vi='vim'
+alias v='vim'
 alias e='emacs'
 if_mac alias o='open .'
 

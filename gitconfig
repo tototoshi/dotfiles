@@ -16,6 +16,8 @@
         fixup = commit --amend -C HEAD
         hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
         today = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --since=midnight --oneline --author=\"`git config --get user.name`\"'"
+        delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+        fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
 [core]
         excludesfile = ~/.gitignore
         pager = less

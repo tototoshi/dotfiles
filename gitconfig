@@ -33,3 +33,5 @@
         generic = G move-last-line
 [push]
         default = simple
+[ghq]
+        root = ~/work

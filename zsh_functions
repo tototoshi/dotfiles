@@ -5,3 +5,7 @@ gco () {
 gmerge () {
     git merge $(git branch | percol)
 }
+
+repos () {
+    cd $(git config --path ghq.root)/$(ghq list | percol)
+}

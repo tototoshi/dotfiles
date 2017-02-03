@@ -169,7 +169,7 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
   (package-initialize))
 
-(unless (package-installed-p 'scala-mode2)
-  (package-refresh-contents) (package-install 'scala-mode2))
+(unless (package-installed-p 'scala-mode)
+  (package-refresh-contents) (package-install 'scala-mode))
 (unless (package-installed-p 'go-mode)
   (package-refresh-contents) (package-install 'go-mode))

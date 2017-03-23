@@ -1,11 +1,11 @@
 gco () {
-    git checkout $(git branch | percol)
+    git checkout $(git branch | peco)
 }
 
 gmerge () {
-    git merge $(git branch | percol)
+    git merge $(git branch | peco)
 }
 
 repos () {
-    cd $(git config --path ghq.root)/$(ghq list | percol)
+    cd $(git config --path ghq.root)/$(ghq list | peco)
 }

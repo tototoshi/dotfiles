@@ -18,11 +18,25 @@
 ;; 読み込み専用のテキストをキルしてもエラーを出さないようにする
 (setq kill-read-only-ok t)
 
-;; kill-ringとgnomeのクリップボードを同期する
-(cond (window-system
-       (setq x-select-enable-clipboard t)))
+;; kill-ringクリップボードを同期する(Linux)
+(cond ((or window-system (getenv "DISPLAY"))
+      (setq x-select-enable-clipboard t)))
 
-;; Mac のクリップボードと同期
+;; クリップボードと同期(Linux)
+(defun copy-from-linux ()
+  (shell-command-to-string "xsel -bo"))
+
+(defun paste-to-linux (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "xsel" "*Messages*" "xsel" "-bi")))
+      (process-send-string proc text)
+      (process-send-eof proc))))
+
+(when (eq 'gnu/linux system-type)
+  (setq interprogram-cut-function 'paste-to-linux)
+  (setq interprogram-paste-function 'copy-from-linux))
+
+;; クリップボードと同期(Mac)
 (defun copy-from-osx ()
   (shell-command-to-string "reattach-to-user-namespace -l sh -c pbpaste"))
 

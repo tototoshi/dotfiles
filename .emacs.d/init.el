@@ -187,3 +187,5 @@
   (package-refresh-contents) (package-install 'scala-mode))
 (unless (package-installed-p 'go-mode)
   (package-refresh-contents) (package-install 'go-mode))
+(unless (package-installed-p 'yaml-mode)
+  (package-refresh-contents) (package-install 'yaml-mode))

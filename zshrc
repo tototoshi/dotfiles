@@ -77,6 +77,7 @@ SPROMPT="%r is correct? [n,y,a,e]: "
 HISTFILE=~/.zsh_history
 HISTSIZE=100000000
 SAVEHIST=100000000
+setopt hist_ignore_space
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 

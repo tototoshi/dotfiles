@@ -189,3 +189,5 @@
   (package-refresh-contents) (package-install 'go-mode))
 (unless (package-installed-p 'yaml-mode)
   (package-refresh-contents) (package-install 'yaml-mode))
+(unless (package-installed-p 'markdown-mode)
+  (package-refresh-contents) (package-install 'markdown-mode))

@@ -178,3 +178,9 @@ load_if_exists ~/.zsh_functions
 
 # /usr/local/bin と $HOME/bin を /usr/bin より前にしたい
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774
+if [ -d "$HOME/.bookmarks" ]; then
+    export CDPATH=".:$HOME/.bookmarks:/"
+    alias goto="cd -P"
+fi

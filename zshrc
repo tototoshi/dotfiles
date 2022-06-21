@@ -155,14 +155,6 @@ function chpwd() {
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
-
-############################################################
-###  read python startup file
-############################################################
-if [ -f ~/.pythonstartup ]; then
-    export PYTHONSTARTUP=~/.pythonstartup
-fi
-
 load_if_exists ~/.zsh_private
 load_if_exists ~/.zsh_aliases
 load_if_exists ~/.zsh_functions

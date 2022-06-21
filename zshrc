@@ -20,15 +20,6 @@ load_if_exists () {
     fi
 }
 
-lw () {
-    perl -pe 's/\&/\&amp;/g' |\
-    perl -pe 's/</\&lt;/g' |\
-    perl -pe 's/>/\&gt;/g' |\
-    perl -pe 's/^([^:]+):(.+)$/<a href="$1">$1<\/a>:$2/' |\
-    perl -pe 's/$/<br\/>/' |\
-    EDITOR='vim' w3m -T text/html
-}
-
 # execute command or function only when using mac
 if_mac () {
     if [[ $(uname) = "Darwin" ]] then
